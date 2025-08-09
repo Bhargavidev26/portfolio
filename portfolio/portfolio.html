@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhargavi Devapatla — Portfolio</title>
+  <meta name="description" content="Bhargavi Devapatla — Frontend Developer & ML Enthusiast" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7; /* soft green */
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max-width:1100px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071124 0%, #071428 60%);color:#e6eef6}
+    a{color:var(--accent);text-decoration:none}
+
+    .container{max-width:var(--max-width);margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#7ee7c7,#5b8cff);display:grid;place-items:center;font-weight:800;color:#04263b}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{font-weight:600;color:var(--muted);padding:8px 10px;border-radius:10px}
+    nav a:hover{background:var(--glass);color:#fff}
+    .cta{background:linear-gradient(90deg,var(--accent),#7dd3fc);padding:8px 12px;border-radius:10px;color:#04263b;font-weight:700}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px}
+    .intro h1{font-size:32px;margin:0 0 8px 0;line-height:1.02}
+    .intro p{color:var(--muted);margin:0 0 18px}
+    .skills-row{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-weight:600;color:var(--muted);font-size:13px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .profile{display:flex;flex-direction:column;align-items:center;gap:12px}
+    .avatar{width:160px;height:160px;border-radius:18px;background:linear-gradient(135deg,#0ea5a5,#7c3aed);display:grid;place-items:center;font-size:42px;font-weight:800;color:#04263b}
+    .download{margin-top:6px}
+
+    /* sections */
+    section{margin-top:30px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+    .project h4{margin:8px 0 6px 0}
+    .project p{color:var(--muted);margin:0 0 10px}
+    .techs{display:flex;gap:8px;flex-wrap:wrap}
+    .tech{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
+
+    .skills-list{display:flex;flex-direction:column;gap:12px}
+    .skill{display:flex;flex-direction:column;gap:6px}
+    .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#7dd3fc);width:60%}
+
+    footer{margin-top:42px;padding:18px 0;text-align:center;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .projects-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .container{padding:16px;margin:22px auto}
+      nav{display:none}
+      .mobile-nav{display:flex}
+      .grid-3{grid-template-columns:1fr}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .row{display:flex;gap:16px;align-items:center}
+    .tag{font-size:13px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
+
+    /* subtle hover */
+    .project:hover{transform:translateY(-6px);transition:all .25s ease}
+    .cta:hover{transform:translateY(-3px);transition:all .12s ease}
+
+    /* mobile menu */
+    .mobile-toggle{display:none}
+    @media (max-width:560px){.mobile-toggle{display:block}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">BD</div>
+        <div>
+          <div style="font-weight:700">Bhargavi Devapatla</div>
+          <div class="muted" style="font-size:13px">Frontend Developer • ML Enthusiast</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Hire Me</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="open menu" onclick="alert('Open the HTML file on desktop for full experience or add your mobile menu script')">☰</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="intro">
+          <div class="card">
+            <h1>Hi — I'm Bhargavi. I build beautiful front-ends and explore machine learning.</h1>
+            <p>I'm a frontend-focused developer who enjoys crafting responsive UI, pixel-perfect designs, and experimenting with ML projects on the side. Currently open to internships and freelance work.</p>
+            <div class="skills-row">
+              <span class="pill">HTML & CSS</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">React</span>
+              <span class="pill">PyTorch</span>
+            </div>
+            <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+              <a class="cta" href="#projects">View Projects</a>
+              <a class="tag" href="#contact">Download Resume</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card profile">
+          <img class="avatar" src="D:\portfolio\Bhargavi.jpg" alt="BD">
+          <div style="text-align:center">
+            <div style="font-weight:700">Bhargavi Devapatla</div>
+            <div class="muted" style="font-size:13px">Frontend Developer • ML Intern</div>
+          </div>
+          <div class="download" style="width:100%;display:flex;gap:10px">
+            <a class="cta" style="flex:1;text-align:center" href="#contact">Contact</a>
+            <a class="tag" style="flex:1;text-align:center" href="D:\portfolio\Resume_Bhargavi.pdf" download>Resume</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <div class="card">
+          <h3>About Me</h3>
+          <p class="muted">I am a B.Tech student specializing in AI & ML with hands-on experience building frontend apps and training deep learning models for medical imaging projects. I enjoy turning complex problems into simple, elegant interfaces and am currently focused on building a strong portfolio of web apps and ML demos.</p>
+        </div>
+      </section>
+
+      <section id="Internships">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <h3>Internships</h3>
+    <div class="muted">(Pleasure to work with talented teams and contribute to impactful projects)</div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:16px">
+
+      <div>
+        <h4 style="margin:0">Python Programming Intern — Motioncut</h4>
+        <div class="muted" style="font-size:13px">July – August 2024</div>
+        <p class="muted" style="margin:6px 0 0">
+          Built mini-projects like Expense Tracker, Quiz Game, and Word Counter using Python.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="margin:0">Research Intern — MRImpact</h4>
+        <div class="muted" style="font-size:13px">Feb – April 2025</div>
+        <p class="muted" style="margin:6px 0 0">
+          Worked on machine learning projects involving model training and evaluation.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="margin:0">Project Intern — Selenium Automation</h4>
+        <div class="muted" style="font-size:13px">May – July 2025</div>
+        <p class="muted" style="margin:6px 0 0">
+          Automated web tasks using Selenium and developed reusable test scripts.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      <section id="projects">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3>Selected Projects</h3>
+          <div class="muted">(Click project to view)</div>
+        </div>
+        <div class="projects-grid" style="margin-top:12px">
+          <article class="project card">
+            <h4>Music Recommendation App</h4>
+            <p class="muted">Streamlit + Spotipy + ML model to suggest songs based on user emotion and preferences.Developed a real-time, CNN-based music recommendation system that detects facial expressions using MediaPipe and OpenCV, and delivers personalized song suggestions via an interactive Streamlit interface.</p>
+            <div class="techs">
+              <span class="tech">Python</span>
+              <span class="tech">Streamlit</span>
+              <span class="tech">Spotipy</span>
+            </div>
+          </article>
+
+          <article class="project card">
+            <h4>Prognosis of Anomaly Detection in Tiny Life using AI based Fetal Segmentation Approach</h4>
+            <p class="muted">Automated fetal feature segmentation and head circumference detection from MRI/ultrasound scans using U-Net and SegNet, achieving 96% accuracy.</p>
+            <div class="techs">
+              <span class="tech">PyTorch</span>
+              <span class="tech">ResNet</span>
+              <span class="tech">Kaggle</span>
+            </div>
+          </article>
+
+          <article class="project card">
+            <h4>Harnessing deep learning techniques for early prognosis of oral cancer detection</h4>
+            <p class="muted">Built an ensemble CNN (EfficientNet B3 + ResNet50) with transfer learning, achieving ~97 % accuracy and superior sensitivity/specificity for benign vs malignant lesion classification.</p>
+            <div class="techs">
+              <span class="tech">Python</span>
+              <span class="tech">EfficientNet B3</span>
+              <span class="tech">Kaggle</span>
+              <span class="tech">ResNet50</span>
+            </div>
+          </article>
+
+          <article class="project card">
+            <h4>JusticeGPT</h4>
+            <p class="muted">Built an AI-powered legal query assistant that uses NLP to interpret user questions and provide relevant legal information, case references, and resources through an intuitive front-end interface.</p>
+            <div class="techs">
+              <span class="tech">HTML</span>
+              <span class="tech">CSS</span>
+              <span class="tech">JavaScript</span>
+            </div>
+        </div>
+      </section>
+
+      <section id="publications">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <h3>Publications</h3>
+    <div class="muted">(Click on the title to view the paper)</div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <ul style="margin-top:10px; padding-left:18px; color:var(--muted)">
+      <li>
+        <a href="https://www.sciencedirect.com/science/article/pii/S1877050925015649" target="_blank">
+          Prognosis of Anomaly Detection in Tiny Life using AI based Fetal Segmentation Approach
+        </a>
+      </li>
+      <li>
+        <a href="https://ieeexplore.ieee.org/abstract/document/10991227" target="_blank">
+          Alzheimer's Disease Detection from Brain MRI Scans Using Convolutional Neural Networks
+        </a>
+      </li>
+      <li>
+        <a href="https://www.atlantis-press.com/proceedings/icaaai-25/126012587" target="_blank">
+          Harnessing deep-learning techniques for early prognosis of oral cancer detection
+        </a>
+      </li>
+      <li>
+        <a href="https://www.researchgate.net/publication/393690341_Classifying_Music_Genre_and_Recommending_songs_using_various_ML_Algorithms" target="_blank">
+          Classifying Music Genre and Recommending songs using various ML Algorithms
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="awards" style="margin: 40px 0;">
+  <div style="background: var(--card-bg, #071124); border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <h3 style="margin-bottom: 10px; color: var(--text-color, #fff);">🏆 Awards & Achievements</h3>
+    <ul style="margin-top: 10px; padding-left: 20px; line-height: 1.6; color: var(--muted, #555);">
+      <li>
+        Received <strong>First Place</strong> in the Code Sangam Hackathon at SGT University, Gurgaon, with a cash prize of ₹15,000.
+      </li>
+      <li>
+        Showcased a poster in <strong>Health Innovation Tech</strong>.
+      </li>
+      <li>
+        Awarded a <strong>Letter of Appreciation</strong> for an SDGs project.
+      </li>
+      <li>
+        <strong>3rd Prize Winner</strong>, Altair Data Science Contest, with a cash prize of ₹2,500.
+      </li>
+    </ul>
+  </div>
+</section>
+
+      <section id="skills">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3>Skills</h3>
+          <div class="muted">Technologies I use regularly</div>
+        </div>
+        <div class="grid-3" style="margin-top:12px">
+          <div class="card">
+            <h4>Frontend</h4>
+            <div class="skills-list" style="margin-top:6px">
+              <div class="skill"><div class="row"><div>HTML & CSS</div><div class="muted">&nbsp;— 95%</div></div><div class="bar"><i style="width:95%"></i></div></div>
+              <div class="skill"><div class="row"><div>JavaScript</div><div class="muted">&nbsp;— 85%</div></div><div class="bar"><i style="width:85%"></i></div></div>
+              <div class="skill"><div class="row"><div>React</div><div class="muted">&nbsp;— 70%</div></div><div class="bar"><i style="width:70%"></i></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Machine Learning</h4>
+            <div class="skills-list" style="margin-top:6px">
+              <div class="skill"><div class="row"><div>PyTorch / TensorFlow</div><div class="muted">&nbsp;— 72%</div></div><div class="bar"><i style="width:72%"></i></div></div>
+              <div class="skill"><div class="row"><div>Image Segmentation</div><div class="muted">&nbsp;— 78%</div></div><div class="bar"><i style="width:78%"></i></div></div>
+              <div class="skill"><div class="row"><div>Data Analysis</div><div class="muted">&nbsp;— 80%</div></div><div class="bar"><i style="width:80%"></i></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Other</h4>
+            <div style="margin-top:6px">
+              <div class="tag">Git</div>
+              <div class="tag">SQL</div>
+              <div class="tag">REST APIs</div>
+              <div style="height:10px"></div>
+              <p class="muted">Available for internships, projects, and collaborations. Open to learning new tools.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="card">
+          <h3>Contact</h3>
+          <p class="muted">Want to work together or see my full resume? Drop a message.</p>
+          <form onsubmit="event.preventDefault();alert('This is a demo form — replace with your backend or mailto link')" style="margin-top:12px;display:grid;gap:8px">
+            <input placeholder="Your name" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#e6eef6" required>
+            <input type="email" placeholder="you@email.com" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#e6eef6" required>
+            <textarea placeholder="Message" rows="4" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#e6eef6" required></textarea>
+            <div style="display:flex;gap:10px">
+              <button class="cta" style="flex:1">Send Message</button>
+              <a class="tag" style="flex:1;text-align:center" href="mailto:bhargavir139@gmail.com">Email</a>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        <div class="muted">© " + new Date().getFullYear() + " Bhargavi Devapatla — Built with ❤️</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // small enhancement: JS to write current year into footer if JS is available
+    try{
+      document.querySelector('footer div').innerText = '© ' + new Date().getFullYear() + ' Bhargavi Devapatla — Built with ❤️';
+    }catch(e){}
+  </script>
+</body>
+</html>
